@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Mon Portfolio — Samuel PINAULT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Condensed:wght@300;400;700;900&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* RESET & CSS VARIABLES */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+img,video,canvas,svg{max-width:100%;height:auto}
+
+:root{
+  --dark:#141412;
+  --dark-alt:#1e1e1b;
+  --dark-card:#262623;
+  --gold:#c8a96e;
+  --gold-light:#e8c98e;
+  --white:#f5f2ed;
+  --gray:#888882;
+  --gray-light:#b0ada8;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-serif:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:var(--font-serif);overflow-x:hidden;word-wrap:break-word;overflow-wrap:break-word;margin:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(20,20,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,169,110,.2);transition:background 0.3s ease}
+.nav-brand{font-family:var(--font-serif);font-weight:600;font-style:italic;font-size:1.2rem;text-decoration:none;color:var(--gold-light);transition:opacity 0.3s}
+.nav-brand:hover{opacity:0.8}
+.nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
+.nav-links a{font-family:var(--font-display);font-weight:400;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--gray-light);transition:color .3s, transform .2s}
+.nav-links a:hover{color:var(--gold-light);transform:translateY(-2px)}
+.nav-links a.active-nav{color:var(--gold-light);font-weight:700;border-bottom:2px solid var(--gold);padding-bottom:2px}
+
+/* STRUCTURE ET SECTIONS */
+section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
+.section-dark{background:var(--dark)}
+.section-alt{background:var(--dark-alt);border-top:1px solid rgba(200,169,110,.2);border-bottom:1px solid rgba(200,169,110,.2)}
+
+/* EN-TÊTE DE SECTION */
+.section-header{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:3.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.section-num{font-family:var(--font-display);font-weight:900;font-size:3.5rem;line-height:.8;color:var(--gold);opacity:.6;transition:transform 0.4s}
+.section-header:hover .section-num{transform:scale(1.05)}
+.section-titles{display:flex;flex-direction:column}
+.section-label{font-family:var(--font-display);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.section-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3.5rem);line-height:1;text-transform:uppercase;color:var(--white);margin:0}
+
+/* ===== SECTION 01 : ACCUEIL & LECTEUR VIDÉO ===== */
+#home{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;min-height:90vh;padding-top:8rem}
+.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);line-height:.95;color:var(--white)}
+.hero-subtitle{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:1rem}
+.hero-desc{font-size:1.15rem;color:var(--gray-light);margin-top:1.5rem;line-height:1.7}
+
+.video-container{position:relative;width:100%;aspect-ratio:16/9;background:var(--dark-card);border:2px solid var(--gold);border-radius:8px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 0.4s ease, box-shadow 0.4s ease}
+.video-container:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(200,169,110,0.15)}
+.video-container video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* BOUTON PLAY DANS LE COIN INFÉRIEUR DROIT */
+.play-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:1.5rem;background:rgba(0,0,0,0.15);cursor:pointer;transition:background 0.3s, opacity 0.3s;z-index:10}
+.play-overlay:hover{background:rgba(0,0,0,0.05)}
+.play-btn{width:55px;height:55px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(200,169,110,0.6);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s}
+.play-overlay:hover .play-btn{transform:scale(1.15);background:var(--gold-light)}
+.play-btn::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent var(--dark);margin-left:3px}
+.play-overlay.hidden{opacity:0;pointer-events:none}
+
+/* ===== TIMELINE PROFIL / PARCOURS ===== */
+.timeline-container{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
+.timeline-item{background:var(--dark-card);border-left:4px solid var(--gold);padding:1.5rem 2rem;border-radius:0 8px 8px 0;box-shadow:0 5px 20px rgba(0,0,0,.2);transition:transform 0.3s ease, box-shadow 0.3s ease}
+.timeline-item:hover{transform:translateX(6px);box-shadow:0 8px 25px rgba(200,169,110,0.1)}
+.timeline-date{font-family:var(--font-display);font-size:.9rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem}
+.timeline-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:.5rem}
+.timeline-desc{font-size:1.05rem;color:var(--gray-light);line-height:1.5}
+
+/* ===== GRILLE CARTE PHOTO + TITRE ===== */
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.card{background:var(--dark-card);border:1px solid rgba(200,169,110,.25);border-radius:8px;padding:1.2rem;transition:all .35s cubic-bezier(0.165, 0.84, 0.44, 1);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,.5)}
+
+.card-image{width:100%;aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:1.2rem;border:1px solid rgba(200,169,110,.2);position:relative;background-color:var(--dark);display:flex;align-items:center;justify-content:center}
+.card-image img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.card:hover .card-image img{transform:scale(1.04)}
+
+.img-actions{position:absolute;bottom:8px;right:8px;display:flex;gap:5px;z-index:10}
+.btn-action{background:rgba(20,20,18,0.85);color:var(--gold);border:1px solid var(--gold);padding:4px 8px;font-size:0.75rem;border-radius:4px;cursor:pointer;font-family:var(--font-display);text-transform:uppercase;transition:all 0.25s}
+.btn-action:hover{background:var(--gold);color:var(--dark);transform:scale(1.05)}
+
+.single-card-container{max-width:500px;margin:0 auto}
+.card-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;text-transform:uppercase;color:var(--white);margin:0;width:100%}
+
+/* ===== SECTIONS COMPÉTENCES ET INTÉRÊTS ===== */
+.skill-grid-container{display:grid;grid-template-columns:repeat(3, 1fr);gap:2rem}
+.skill-box{background:var(--dark-card);padding:2rem;border-radius:8px;border-left:4px solid var(--gold);box-shadow:0 5px 20px rgba(0,0,0,.2);transition:transform 0.3s ease, box-shadow 0.3s ease}
+.skill-box:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(200,169,110,0.12)}
+.box-title{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);text-transform:uppercase;margin:0 0 1rem 0}
+.skill-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:.8rem}
+.skill-list li{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.05em;color:var(--white);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.6rem;transition:transform 0.2s, color 0.2s}
+.skill-list li:hover{transform:translateX(4px);color:var(--gold-light)}
+.skill-list li::before{content:'✦';color:var(--gold);font-size:.8rem}
+
+.interests-single-container{max-width:500px;margin:0 auto}
+
+/* ===== SECTION CONTACT & CV CÔTE À CÔTE ===== */
+.contact-container{display:grid;grid-template-columns:1.1fr 0.9fr;align-items:start;gap:3rem;max-width:1100px;margin:0 auto}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;background:var(--dark-card);padding:2.5rem;border-radius:8px;border:1px solid rgba(200,169,110,.25);height:100%;justify-content:center;transition:transform 0.3s ease}
+.contact-info:hover{transform:translateY(-3px)}
+.contact-item{font-family:var(--font-display);font-size:1.15rem;color:var(--white);display:flex;align-items:center;gap:1rem;transition:transform 0.2s}
+.contact-item:hover{transform:translateX(4px)}
+.contact-item i { color: var(--gold); font-size: 1.5rem; width: 30px; text-align: center; } 
+.contact-item a{color:var(--gold-light);text-decoration:none;transition:color .3s}
+.contact-item a:hover{color:var(--white)}
+
+.cv-box{background:var(--dark-card);border:1px solid rgba(200,169,110,.3);padding:2rem;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem; width: 100%;transition:transform 0.3s ease} 
+.cv-box:hover{transform:translateY(-3px)}
+.cv-viewer{width:100%;max-width:350px;aspect-ratio:1/1.414;border:1px solid var(--gold);border-radius:6px;overflow:hidden;background:var(--dark-alt);position:relative;display:flex;align-items:center;justify-content:center}
+.cv-viewer img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .4s ease}
+.cv-viewer:hover img{transform:scale(1.03)}
+.btn-cv{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--font-display);font-size:1rem;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:var(--dark);padding:.9rem 1.8rem;border-radius:4px;text-decoration:none;font-weight:700;transition:all .3s;cursor:pointer;border:none}
+.btn-cv:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 5px 15px rgba(200,169,110,0.4)}
+
+/* MODALE DE DÉTAIL & GALERIE */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,8,.88);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:2rem;opacity:0;transition:opacity 0.3s ease}
+.modal-overlay.open{display:flex;opacity:1}
+.modal-content{background:var(--dark-alt);border:1px solid var(--gold);width:100%;max-width:900px;max-height:85vh;overflow-y:auto;border-radius:8px;padding:3rem;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.8);transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.modal-overlay.open .modal-content{transform:scale(1)}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--gold);font-size:1.6rem;cursor:pointer;transition:transform 0.2s}
+.modal-close:hover{transform:scale(1.2)}
+.modal-title{font-family:var(--font-display);font-size:2.2rem;font-weight:900;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;border-bottom:1px solid rgba(200,169,110,.3);padding-bottom:.8rem}
+.modal-intro-text{font-size:1.1rem;color:var(--gray-light);line-height:1.7;margin-bottom:2rem;font-style:italic}
+
+.interest-row{margin-bottom:2rem}
+.interest-row-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold-light);text-transform:uppercase;margin-bottom:.8rem;border-left:3px solid var(--gold);padding-left:.8rem}
+.interest-row-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.interest-row-grid .img-wrapper{position:relative;height:130px; background-color:var(--dark-card);border-radius:6px;overflow:hidden}
+.interest-row-grid img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid rgba(200,169,110,.4);transition:transform 0.4s ease}
+.interest-row-grid .img-wrapper:hover img{transform:scale(1.06)}
+
+.detail-section{margin-bottom:1.8rem}
+.detail-label{font-family:var(--font-display);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:700}
+.detail-text{font-size:1.05rem;color:var(--gray-light);line-height:1.6;font-weight:300}
+
+/* GRILLES D'IMAGES MODALE */
+.simulator-versions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.2rem}
+.project-double-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;margin-bottom:1.2rem}
+.project-triple-images{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;margin-bottom:1.2rem}
+
+/* FORMATS DE CARTES D'IMAGES (PAYSAGE OU PORTRAIT) */
+.version-card{display:flex;flex-direction:column;align-items:center}
+.version-card .img-wrapper{position:relative;width:100%;aspect-ratio:16/9;height:auto;background-color:var(--dark);border-radius:6px;border:1px solid rgba(200,169,110,.4);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.version-card img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 0.4s ease}
+.version-card:hover img{transform:scale(1.04)}
+
+/* FORMAT PORTRAIT SPÉCIFIQUE (BANC DE ROULAGE) */
+.portrait-card .img-wrapper{aspect-ratio:3/4;}
+
+.version-caption{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--gold-light);margin-top:.5rem;text-transform:uppercase;text-align:center}
+
+@media(max-width:900px){
+  #home,.skill-grid-container,.contact-container{grid-template-columns:1fr;gap:2.5rem}
+  .skill-grid-container{grid-template-columns:1fr}
+  .skill-list{grid-template-columns:1fr}
+  .interest-row-grid,.simulator-versions-grid,.project-triple-images,.project-double-images{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  section{padding:5rem 1.2rem 3rem 1.2rem}
+}
+@media(max-width:600px){
+  .simulator-versions-grid,.project-triple-images,.project-double-images{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home" class="nav-brand">Mon portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#home">01. Accueil</a></li>
+    <li><a href="#profil">02. Mon Profil</a></li>
+    <li><a href="#parcours">03. Réalisations</a></li>
+    <li><a href="#activite-perso">04. Activité personnelle</a></li>
+    <li><a href="#competences">05. Compétences</a></li>
+    <li><a href="#photographie">06. Photographie</a></li>
+    <li><a href="#contact">07. Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PARTIE 01 : ACCUEIL -->
+<section id="home" class="section-dark">
+  <div>
+    <div class="section-label">01. Présentation</div>
+    <h1 class="hero-title">Samuel PINAULT</h1>
+    <div class="hero-subtitle">Bienvenue sur mon portfolio.</div>
+    <p class="hero-desc">
+      Venez découvrir mon profil ainsi que certaines de mes réalisations dans différents contextes, qu'ils soient académiques ou personnels.
+    </p>
+  </div>
+  <div>
+    <div class="video-container">
+      <video id="main-video" poster="images/Capture.png" preload="metadata">
+        <source src="images/Vidéo.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture vidéo.
+      </video>
+      <div class="play-overlay" id="play-overlay" onclick="togglePlay()">
+        <div class="play-btn"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 02 : MON PROFIL (PARCOURS ACADÉMIQUE) -->
+<section id="profil" class="section-alt">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-titles">
+      <span class="section-label">Cursus académique</span>
+      <h2 class="section-title">Mon Profil</h2>
+    </div>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <div class="timeline-date">IUT</div>
+      <div class="timeline-title">BUT GMP - Parcours Simulation</div>
+      <div class="timeline-desc">IUT d'Orléans</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Lycée</div>
+      <div class="timeline-title">Baccalauréat Général (Mathématiques / Sciences de l'ingénieur)</div>
+      <div class="timeline-desc">Lycée Blaise Pascal (Châteauroux) — Mention Bien</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Collège</div>
+      <div class="timeline-title">Diplôme National du Brevet (DNB)</div>
+      <div class="timeline-desc">Collège Les Ménigouttes (Le Blanc) — Mention Très Bien</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 03 : PARCOURS ACADÉMIQUE & RÉALISATIONS -->
+<section id="parcours" class="section-dark">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-titles">
+      <span class="section-label">Projets académiques</span>
+      <h2 class="section-title">Mes Réalisations</h2>
+    </div>
+  </div>
+  
+  <div class="grid-cards">
+    <div class="card">
+      <div class="card-image">
+        <img id="img-real1" src="images/01. Projet Genouillère (ICN-BE5).png" alt="Projet Genouillère">
+        <div class="img-actions">
+          <button class="btn-action" onclick="openModal('real1')">🔍 Voir</button>
+        </div>
+      </div>
+      <div class="card-title">01. Projet Genouillère (ICN-BE5)</div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <img id="img-real2" src="images/02. Projet Banc de Roulage.jpg" alt="Banc de roulage">
+        <div class="img-actions">
+          <button class="btn-action" onclick="openModal('real2')">🔍 Voir</button>
+        </div>
+      </div>
+      <div class="card-title">02. Projet Tutoré - Banc de Roulage</div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <img id="img-real3" src="images/03. Optimisation d'une biellette.png" alt="Optimisation d'une biellette">
+        <div class="img-actions">
+          <button class="btn-action" onclick="openModal('real3')">🔍 Voir</button>
+        </div>
+      </div>
+      <div class="card-title">03. Optimisation d'une biellette</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 04 : ACTIVITÉ PERSONNELLE -->
+<section id="activite-perso" class="section-alt">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-titles">
+      <span class="section-label">Projet personnel</span>
+      <h2 class="section-title">Activité Personnelle</h2>
+    </div>
+  </div>
+  
+  <div class="single-card-container">
+    <div class="card">
+      <div class="card-image">
+        <img id="img-perso1" src="images/Conception et réalisation d'un simulateur_2.png" alt="Simulateur">
+        <div class="img-actions">
+          <button class="btn-action" onclick="openModal('perso1')">🔍 Voir</button>
+        </div>
+      </div>
+      <div class="card-title">Conception et réalisation d'un simulateur</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 05 : COMPÉTENCES -->
+<section id="competences" class="section-dark">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-titles">
+      <span class="section-label">Savoir-faire & Savoir-être</span>
+      <h2 class="section-title">Compétences</h2>
+    </div>
+  </div>
+  
+  <div class="skill-grid-container">
+    <div class="skill-box">
+      <h3 class="box-title">Savoir-faire Technique</h3>
+      <ul class="skill-list">
+        <li>Conception (CAO)</li>
+        <li>Creo Parametric / Catia V5</li>
+        <li>Dimensionnement</li>
+        <li>Dessins techniques</li>
+        <li>Industrialisation & Usinage</li>
+        <li>Contrôle et mesure</li>
+      </ul>
+    </div>
+
+    <div class="skill-box">
+      <h3 class="box-title">Savoir-être</h3>
+      <ul class="skill-list">
+        <li>Autonomie & Rigueur</li>
+        <li>Esprit d'équipe</li>
+        <li>Capacité d'adaptation</li>
+        <li>Ponctualité & Organisation</li>
+      </ul>
+    </div>
+
+    <div class="skill-box">
+      <h3 class="box-title">Langues</h3>
+      <ul class="skill-list">
+        <li>Anglais (Niveau B2)</li>
+        <li>Espagnol (Niveau B1)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 06 : PHOTOGRAPHIE -->
+<section id="photographie" class="section-alt">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div class="section-titles">
+      <span class="section-label">Passions & Clichés</span>
+      <h2 class="section-title">Photographie</h2>
+    </div>
+  </div>
+
+  <div class="interests-single-container">
+    <div class="card">
+      <div class="card-image">
+        <img id="img-interets" src="images/Photographie.jpg" alt="Photographie">
+        <div class="img-actions">
+          <button class="btn-action" onclick="openModal('interets_galerie')">🔍 Galerie</button>
+        </div>
+      </div>
+      <div class="card-title">Photographie</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 07 : CONTACT & CV -->
+<section id="contact" class="section-dark">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div class="section-titles">
+      <span class="section-label">Informations</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+  </div>
+  
+  <div class="contact-container">
+    <div class="contact-info">
+      <p style="color:var(--gray-light);font-size:1.1rem;margin:0 0 1rem 0">
+        N'hésitez pas à me contacter pour toute opportunité de stage ou échange.
+      </p>
+      <div class="contact-item"><i class="fas fa-phone"></i><span>06 85 71 33 94</span></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:samuelpinault@outlook.fr">samuelpinault@outlook.fr</a></span></div>
+      <div class="contact-item"><i class="fab fa-linkedin"></i><span><a href="https://www.linkedin.com/in/samuel-pinault-7b81202a1/" target="_blank" rel="noopener">Profil LinkedIn</a></span></div>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Le Blanc / Centre Val de Loire, France</span></div>
+    </div>
+    
+    <div class="cv-box">
+      <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--white);text-transform:uppercase;margin:0">Curriculum Vitae</h3>
+      <div class="cv-viewer">
+        <img id="img-cv" src="images/CV.png" alt="CV de Samuel PINAULT">
+      </div>
+      <a href="images/Samuel-PINAULT-CV.pdf" download="Samuel-PINAULT-CV.pdf" class="btn-cv">
+        <i class="fas fa-download"></i> Télécharger le CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MODALE -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 class="modal-title" id="m-title">Titre</h3>
+    <div id="m-rows-container"></div>
+    <div id="m-project-container" style="display:none;">
+      <div class="detail-section">
+        <div class="detail-label">1. Contexte</div>
+        <div class="detail-text" id="m-contexte"></div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">2. Objectif</div>
+        <div class="detail-text" id="m-objectif"></div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">3. Cahier des charges</div>
+        <div class="detail-text" id="m-cdc"></div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label" id="m-methodes-label">4. Méthodes & Démarche</div>
+        <div class="detail-text" id="m-methodes"></div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">5. Étapes de réalisation</div>
+        
+        <!-- Grilles d'images dynamiques selon le projet -->
+        <div id="m-etapes-versions-images" class="simulator-versions-grid" style="display:none;"></div>
+        <div id="m-genouillere-images" class="project-double-images" style="display:none;">
+          <div class="version-card">
+            <div class="img-wrapper"><img src="images/Gabarit de soudage.png" alt="Gabarit de soudage"></div>
+            <div class="version-caption">Gabarit de soudage</div>
+          </div>
+          <div class="version-card">
+            <div class="img-wrapper"><img src="images/Pièce finie.png" alt="Pièce finie"></div>
+            <div class="version-caption">Pièce finie</div>
+          </div>
+        </div>
+        <div id="m-biellette-images" class="project-triple-images" style="display:none;">
+          <div class="version-card">
+            <div class="img-wrapper"><img src="images/Etape 1.png" alt="Etape 1"></div>
+            <div class="version-caption">Étape 1</div>
+          </div>
+          <div class="version-card">
+            <div class="img-wrapper"><img src="images/Etape 2.png" alt="Etape 2"></div>
+            <div class="version-caption">Étape 2</div>
+          </div>
+          <div class="version-card">
+            <div class="img-wrapper"><img src="images/Etape 3.png" alt="Etape 3"></div>
+            <div class="version-caption">Étape 3</div>
+          </div>
+        </div>
+
+        <div class="detail-text" id="m-etapes"></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-label">6. Difficultés rencontrées</div>
+        <div class="detail-text" id="m-difficultes"></div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">7. Résultats & Bilan</div>
+        <div class="detail-text" id="m-resultats"></div>
+      </div>
+
+      <!-- Emplacement des photos en format portrait sous la partie 7 pour le banc de roulage -->
+      <div id="m-banc-extra-images" class="project-double-images" style="display:none;">
+        <div class="version-card portrait-card">
+          <div class="img-wrapper"><img src="images/Banc existant.jpg" alt="Banc existant"></div>
+          <div class="version-caption">Banc existant</div>
+        </div>
+        <div class="version-card portrait-card">
+          <div class="img-wrapper"><img src="images/CAO banc de roulage.png" alt="CAO banc de roulage"></div>
+          <div class="version-caption">CAO banc de roulage</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const video = document.getElementById('main-video');
+const overlay = document.getElementById('play-overlay');
+
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+    video.controls = true;
+    overlay.classList.add('hidden');
+  } else {
+    video.pause();
+  }
+}
+
+if (video) {
+  video.load();
+  video.addEventListener('pause', () => { overlay.classList.remove('hidden'); });
+  video.addEventListener('play', () => { overlay.classList.add('hidden'); });
+}
+
+// GESTION DU MENU ACTIF AU SCROLL
+window.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.pageYOffset >= sectionTop - 150) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active-nav');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active-nav');
+      }
+    });
+  });
+});
+
+// DONNÉES DES GALERIES PHOTOGRAPHIE
+const INTEREST_ROWS = [
+  {
+    title: "01. Automobile",
+    images: [
+      "images/01. Automobile1.jpg",
+      "images/01. Automobile2.jpg",
+      "images/01. Automobile3.jpg",
+      "images/01. Automobile4.jpg"
+    ]
+  },
+  {
+    title: "02. Sport",
+    images: [
+      "images/02. Sport1.jpg",
+      "images/02. Sport2.jpg",
+      "images/02. Sport3.jpg",
+      "images/02. Sport4.jpg"
+    ]
+  },
+  {
+    title: "03. Paysages",
+    images: [
+      "images/03. Paysages1.jpg",
+      "images/03. Paysages2.jpg",
+      "images/03. Paysages3.jpg",
+      "images/03. Paysages4.jpg"
+    ]
+  }
+];
+
+// DONNÉES DES MODALES
+const DETAILS = {
+  real1: {
+    title: "01. Projet Genouillère (ICN-BE5)",
+    contexte: "Projet réalisé dans le cadre du module BE5. Réalisation de l'assemblage de plusieurs pièces en respectant un cahier des charges précis tout en anticipant les phases de fabrication.",
+    objectif: "Comparer les procédés de mécano-soudé et de fonderie sur une pièce mécanique (Pièce 1) pour comprendre leur impact sur la conception et la fabrication.",
+    cdc: "Respecter les contraintes géométriques de l'assemblage, anticiper la faisabilité d'usinage.",
+    methodesLabel: "4. Méthodes & Démarche",
+    methodes: "Analyse pour comparer les différents procédés sur Creo Parametric lors de TP, puis fabrication de la pièce en mécano-soudé.",
+    etapes: "Conception de la CAO du gabarit de soudage, découpe jet d'eau des éléments, pliage, soudage des composants de la pièce, alésage du cylindre intérieur, perçage final.",
+    showGenouillereImages: true,
+    difficultes: "Réussir les usinages les plus précis possibles et les soudures de meilleures qualités possibles sans grand entraînement.",
+    resultats: "Pièce réalisée avec succès."
+  },
+  real2: {
+    title: "02. Projet Tutoré - Banc de Roulage",
+    contexte: "Projet mené en BUT 2 GMP pour l'association Hyperbole++. L'objectif est de concevoir un banc de roulage pour tester le moteur et régler la carte de puissance du prototype.",
+    objectif: "Remplacer l'ancien banc trop lourd par une structure en profilés aluminium plus compacte, sécurisée et adaptable au véhicule.",
+    cdc: "Utilisation du plus de composants du banc actuel et réalisation du projet avec le coût le moins important.",
+    methodesLabel: "4. Méthodes & Démarche",
+    methodes: "Démontage de l'ancien banc et analyse, tests sur roue de vélo pour valider le principe d'inertie, réalisation de calculs, modélisation CAO sous Creo et calculs de dimensionnement.",
+    etapes: "Conception de plusieurs versions CAO, optimisation des dimensions de la structure et intégration de la visserie (écrous en T, équerres).",
+    showBancExtraImages: true,
+    difficultes: "Gérer l'alignement des composants et assurer la coaxialité entre la couronne et la roue grâce à une pièce intermédiaire.",
+    resultats: "Prototype fonctionnel mais manque de temps pour la réalisation."
+  },
+  real3: {
+    title: "03. Optimisation d'une biellette",
+    contexte: "Déterminer le comportement de la bielle sous différents efforts afin d'analyser les contraintes subies.",
+    objectif: "Optimiser la forme de la pièce afin d'atténuer les contraintes en respectant le cahier des charges.",
+    cdc: "Coefficient de sécurité de 6, faisabilité en injection plastique (arrondis adéquats), masse < 10 g.",
+    methodesLabel: "4. Méthodes & Démarche",
+    methodes: "Modifications géométriques pour évaluer l'importance de chaque paramètre sur les contraintes.",
+    showBielletteImages: true,
+    etapes: "Création de formes arrondies, ajout de blocs de matière, réalisation de chanfreins et ajustement des rayons.",
+    difficultes: "Respecter l'intégralité des critères du cahier des charges.",
+    resultats: "Pièce optimisée plus légère et qui subit moins de contraintes."
+  },
+  perso1: {
+    title: "Conception et réalisation d'un simulateur",
+    contexte: "Passionné par l'automobile et le simracing, j'ai réalisé la conception et la fabrication complète de mon simulateur.",
+    objectif: "Réaliser les différentes tâches du projet : conception, choix techniques, dimensionnement et assemblage.",
+    cdc: "Créer une structure robuste, adaptable et évolutive.",
+    methodesLabel: "4. Méthodes mises en œuvre",
+    methodes: "Analyse de l'existant, modélisation CAO sous Creo Parametric, calcul de structure sous RDM Le Mans, puis assemblage.",
+    versionImages: [
+      { label: "CAO V1", defaultSrc: "images/Version 1.png" },
+      { label: "CAO V2", defaultSrc: "images/Version 2.png" },
+      { label: "CAO V3", defaultSrc: "images/Version 3.png" }
+    ],
+    etapes: "V1 : Châssis de base avec support volant et pédalier. V2 : Intégration d'un support écran. V3 : Intégration d'un siège baquet.",
+    difficultes: "Assurer la rigidité globale et le parallélisme des éléments mécaniques.",
+    resultats: "Simulateur fonctionnel, robuste et quotidiennement utilisé."
+  }
+};
+
+function openModal(key) {
+  const modalOverlay = document.getElementById('modal-overlay');
+  const rowsContainer = document.getElementById('m-rows-container');
+  const projectContainer = document.getElementById('m-project-container');
+  const etapesVersionsContainer = document.getElementById('m-etapes-versions-images');
+  const genouillereImagesContainer = document.getElementById('m-genouillere-images');
+  const bielletteImagesContainer = document.getElementById('m-biellette-images');
+  const bancExtraImagesContainer = document.getElementById('m-banc-extra-images');
+  
+  rowsContainer.innerHTML = '';
+  etapesVersionsContainer.innerHTML = '';
+  etapesVersionsContainer.style.display = 'none';
+  genouillereImagesContainer.style.display = 'none';
+  bielletteImagesContainer.style.display = 'none';
+  bancExtraImagesContainer.style.display = 'none';
+
+  if (key === 'interets_galerie') {
+    document.getElementById('m-title').textContent = "Photographie";
+    projectContainer.style.display = 'none';
+    rowsContainer.style.display = 'block';
+
+    const introP = document.createElement('p');
+    introP.className = 'modal-intro-text';
+    introP.textContent = "Depuis 2021, j'aime capturer tout ce qui m'entoure. La photographie peut mettre en avant ma rigueur et ma capacité d'adaptation quant à vouloir réaliser le meilleur cliché dans différents environnements et conditions.";
+    rowsContainer.appendChild(introP);
+
+    INTEREST_ROWS.forEach((row, rowIndex) => {
+      const rowDiv = document.createElement('div');
+      rowDiv.className = 'interest-row';
+
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'interest-row-title';
+      titleDiv.textContent = row.title;
+
+      const gridDiv = document.createElement('div');
+      gridDiv.className = 'interest-row-grid';
+
+      row.images.forEach((src, imgIndex) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'img-wrapper';
+
+        const img = document.createElement('img');
+        img.id = `modal-img-${rowIndex}-${imgIndex}`;
+        img.src = src;
+
+        wrapper.appendChild(img);
+        gridDiv.appendChild(wrapper);
+      });
+
+      rowDiv.appendChild(titleDiv);
+      rowDiv.appendChild(gridDiv);
+      rowsContainer.appendChild(rowDiv);
+    });
+
+  } else {
+    const data = DETAILS[key];
+    if (!data) return;
+
+    rowsContainer.style.display = 'none';
+    projectContainer.style.display = 'block';
+
+    document.getElementById('m-title').textContent = data.title;
+    document.getElementById('m-methodes-label').textContent = data.methodesLabel || "4. Méthodes & Démarche";
+    
+    ['contexte', 'objectif', 'cdc', 'methodes', 'etapes', 'difficultes', 'resultats'].forEach(field => {
+      const elem = document.getElementById('m-' + field);
+      if (elem) elem.textContent = data[field];
+    });
+
+    if (data.versionImages && data.versionImages.length > 0) {
+      etapesVersionsContainer.style.display = 'grid';
+      data.versionImages.forEach((v, idx) => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'version-card';
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'img-wrapper';
+
+        const img = document.createElement('img');
+        img.id = `sim-version-img-${idx}`;
+        img.src = v.defaultSrc;
+
+        wrapper.appendChild(img);
+
+        const caption = document.createElement('div');
+        caption.className = 'version-caption';
+        caption.textContent = v.label;
+
+        cardDiv.appendChild(wrapper);
+        cardDiv.appendChild(caption);
+        etapesVersionsContainer.appendChild(cardDiv);
+      });
+    }
+
+    if (data.showGenouillereImages) {
+      genouillereImagesContainer.style.display = 'grid';
+    }
+
+    if (data.showBielletteImages) {
+      bielletteImagesContainer.style.display = 'grid';
+    }
+
+    if (data.showBancExtraImages) {
+      bancExtraImagesContainer.style.display = 'grid';
+    }
+  }
+
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = 'auto';
+}
+
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
