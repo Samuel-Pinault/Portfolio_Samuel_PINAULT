@@ -29,12 +29,11 @@ html{scroll-behavior:smooth}
 body{background:var(--dark);color:var(--white);font-family:var(--font-serif);overflow-x:hidden;word-wrap:break-word;overflow-wrap:break-word;margin:0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(20,20,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,169,110,.2);transition:background 0.3s ease}
-.nav-brand{font-family:var(--font-serif);font-weight:600;font-style:italic;font-size:1.2rem;text-decoration:none;color:var(--gold-light);transition:opacity 0.3s}
-.nav-brand:hover{opacity:0.8}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(20,20,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,169,110,.2)}
+.nav-brand{font-family:var(--font-serif);font-weight:600;font-style:italic;font-size:1.2rem;text-decoration:none;color:var(--gold-light)}
 .nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
-.nav-links a{font-family:var(--font-display);font-weight:400;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--gray-light);transition:color .3s, transform .2s}
-.nav-links a:hover{color:var(--gold-light);transform:translateY(-2px)}
+.nav-links a{font-family:var(--font-display);font-weight:400;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--gray-light);transition:color .3s}
+.nav-links a:hover{color:var(--gold-light)}
 .nav-links a.active-nav{color:var(--gold-light);font-weight:700;border-bottom:2px solid var(--gold);padding-bottom:2px}
 
 /* STRUCTURE ET SECTIONS */
@@ -44,8 +43,7 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 
 /* EN-TÊTE DE SECTION */
 .section-header{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:3.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.section-num{font-family:var(--font-display);font-weight:900;font-size:3.5rem;line-height:.8;color:var(--gold);opacity:.6;transition:transform 0.4s}
-.section-header:hover .section-num{transform:scale(1.05)}
+.section-num{font-family:var(--font-display);font-weight:900;font-size:3.5rem;line-height:.8;color:var(--gold);opacity:.6}
 .section-titles{display:flex;flex-direction:column}
 .section-label{font-family:var(--font-display);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
 .section-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3.5rem);line-height:1;text-transform:uppercase;color:var(--white);margin:0}
@@ -56,88 +54,66 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 .hero-subtitle{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:1rem}
 .hero-desc{font-size:1.15rem;color:var(--gray-light);margin-top:1.5rem;line-height:1.7}
 
-.video-container{position:relative;width:100%;aspect-ratio:16/9;background:var(--dark-card);border:2px solid var(--gold);border-radius:8px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 0.4s ease, box-shadow 0.4s ease}
-.video-container:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(200,169,110,0.15)}
+.video-container{position:relative;width:100%;aspect-ratio:16/9;background:var(--dark-card);border:2px solid var(--gold);border-radius:8px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.6)}
 .video-container video{width:100%;height:100%;object-fit:cover;display:block}
 
 /* BOUTON PLAY DANS LE COIN INFÉRIEUR DROIT */
 .play-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:1.5rem;background:rgba(0,0,0,0.15);cursor:pointer;transition:background 0.3s, opacity 0.3s;z-index:10}
 .play-overlay:hover{background:rgba(0,0,0,0.05)}
-.play-btn{width:55px;height:55px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(200,169,110,0.6);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s}
+.play-btn{width:55px;height:55px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(200,169,110,0.6);transition:transform 0.3s, background 0.3s}
 .play-overlay:hover .play-btn{transform:scale(1.15);background:var(--gold-light)}
 .play-btn::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent var(--dark);margin-left:3px}
 .play-overlay.hidden{opacity:0;pointer-events:none}
 
-/* ===== TIMELINE PROFIL / PARCOURS ===== */
-.timeline-container{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
-.timeline-item{background:var(--dark-card);border-left:4px solid var(--gold);padding:1.5rem 2rem;border-radius:0 8px 8px 0;box-shadow:0 5px 20px rgba(0,0,0,.2);transition:transform 0.3s ease, box-shadow 0.3s ease}
-.timeline-item:hover{transform:translateX(6px);box-shadow:0 8px 25px rgba(200,169,110,0.1)}
-.timeline-date{font-family:var(--font-display);font-size:.9rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem}
-.timeline-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:.5rem}
-.timeline-desc{font-size:1.05rem;color:var(--gray-light);line-height:1.5}
-
-/* ===== GRILLE CARTE PHOTO + TITRE ===== */
+/* ===== GRILLE CARTE PHOTO + TITRE (CLIQUABLE) ===== */
 .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
-.card{background:var(--dark-card);border:1px solid rgba(200,169,110,.25);border-radius:8px;padding:1.2rem;transition:all .35s cubic-bezier(0.165, 0.84, 0.44, 1);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
-.card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,.5)}
+.card{background:var(--dark-card);border:1px solid rgba(200,169,110,.25);border-radius:8px;padding:1.2rem;transition:all .3s ease;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;cursor:pointer}
+.card:hover{border-color:var(--gold);box-shadow:0 12px 25px rgba(0,0,0,.5);transform:translateY(-3px)}
 
 .card-image{width:100%;aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:1.2rem;border:1px solid rgba(200,169,110,.2);position:relative;background-color:var(--dark);display:flex;align-items:center;justify-content:center}
-.card-image img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
-.card:hover .card-image img{transform:scale(1.04)}
-
-.img-actions{position:absolute;bottom:8px;right:8px;display:flex;gap:5px;z-index:10}
-.btn-action{background:rgba(20,20,18,0.85);color:var(--gold);border:1px solid var(--gold);padding:4px 8px;font-size:0.75rem;border-radius:4px;cursor:pointer;font-family:var(--font-display);text-transform:uppercase;transition:all 0.25s}
-.btn-action:hover{background:var(--gold);color:var(--dark);transform:scale(1.05)}
+.card-image img{width:100%;height:100%;object-fit:contain;transition:transform .4s ease}
+.card:hover .card-image img{transform:scale(1.03)}
 
 .single-card-container{max-width:500px;margin:0 auto}
 .card-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;text-transform:uppercase;color:var(--white);margin:0;width:100%}
 
 /* ===== SECTIONS COMPÉTENCES ET INTÉRÊTS ===== */
-.skill-grid-container{display:grid;grid-template-columns:repeat(3, 1fr);gap:2rem}
-.skill-box{background:var(--dark-card);padding:2rem;border-radius:8px;border-left:4px solid var(--gold);box-shadow:0 5px 20px rgba(0,0,0,.2);transition:transform 0.3s ease, box-shadow 0.3s ease}
-.skill-box:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(200,169,110,0.12)}
+.skill-grid-container{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.skill-box{background:var(--dark-card);padding:2rem;border-radius:8px;border-left:4px solid var(--gold);box-shadow:0 5px 20px rgba(0,0,0,.2)}
 .box-title{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);text-transform:uppercase;margin:0 0 1rem 0}
-.skill-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:.8rem}
-.skill-list li{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.05em;color:var(--white);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.6rem;transition:transform 0.2s, color 0.2s}
-.skill-list li:hover{transform:translateX(4px);color:var(--gold-light)}
+.skill-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem}
+.skill-list li{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.05em;color:var(--white);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.6rem}
 .skill-list li::before{content:'✦';color:var(--gold);font-size:.8rem}
 
 .interests-single-container{max-width:500px;margin:0 auto}
 
 /* ===== SECTION CONTACT & CV CÔTE À CÔTE ===== */
 .contact-container{display:grid;grid-template-columns:1.1fr 0.9fr;align-items:start;gap:3rem;max-width:1100px;margin:0 auto}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;background:var(--dark-card);padding:2.5rem;border-radius:8px;border:1px solid rgba(200,169,110,.25);height:100%;justify-content:center;transition:transform 0.3s ease}
-.contact-info:hover{transform:translateY(-3px)}
-.contact-item{font-family:var(--font-display);font-size:1.15rem;color:var(--white);display:flex;align-items:center;gap:1rem;transition:transform 0.2s}
-.contact-item:hover{transform:translateX(4px)}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;background:var(--dark-card);padding:2.5rem;border-radius:8px;border:1px solid rgba(200,169,110,.25);height:100%;justify-content:center}
+.contact-item{font-family:var(--font-display);font-size:1.15rem;color:var(--white);display:flex;align-items:center;gap:1rem}
 .contact-item i { color: var(--gold); font-size: 1.5rem; width: 30px; text-align: center; } 
 .contact-item a{color:var(--gold-light);text-decoration:none;transition:color .3s}
 .contact-item a:hover{color:var(--white)}
 
-.cv-box{background:var(--dark-card);border:1px solid rgba(200,169,110,.3);padding:2rem;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem; width: 100%;transition:transform 0.3s ease} 
-.cv-box:hover{transform:translateY(-3px)}
+.cv-box{background:var(--dark-card);border:1px solid rgba(200,169,110,.3);padding:2rem;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem; width: 100%;} 
 .cv-viewer{width:100%;max-width:350px;aspect-ratio:1/1.414;border:1px solid var(--gold);border-radius:6px;overflow:hidden;background:var(--dark-alt);position:relative;display:flex;align-items:center;justify-content:center}
-.cv-viewer img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .4s ease}
-.cv-viewer:hover img{transform:scale(1.03)}
+.cv-viewer img{width:100%;height:100%;object-fit:contain;display:block}
 .btn-cv{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--font-display);font-size:1rem;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:var(--dark);padding:.9rem 1.8rem;border-radius:4px;text-decoration:none;font-weight:700;transition:all .3s;cursor:pointer;border:none}
 .btn-cv:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 5px 15px rgba(200,169,110,0.4)}
 
 /* MODALE DE DÉTAIL & GALERIE */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,8,.88);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:2rem;opacity:0;transition:opacity 0.3s ease}
-.modal-overlay.open{display:flex;opacity:1}
-.modal-content{background:var(--dark-alt);border:1px solid var(--gold);width:100%;max-width:900px;max-height:85vh;overflow-y:auto;border-radius:8px;padding:3rem;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.8);transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
-.modal-overlay.open .modal-content{transform:scale(1)}
-.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--gold);font-size:1.6rem;cursor:pointer;transition:transform 0.2s}
-.modal-close:hover{transform:scale(1.2)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,8,.88);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal-content{background:var(--dark-alt);border:1px solid var(--gold);width:100%;max-width:900px;max-height:85vh;overflow-y:auto;border-radius:8px;padding:3rem;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.8)}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--gold);font-size:1.6rem;cursor:pointer}
 .modal-title{font-family:var(--font-display);font-size:2.2rem;font-weight:900;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;border-bottom:1px solid rgba(200,169,110,.3);padding-bottom:.8rem}
 .modal-intro-text{font-size:1.1rem;color:var(--gray-light);line-height:1.7;margin-bottom:2rem;font-style:italic}
 
 .interest-row{margin-bottom:2rem}
 .interest-row-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold-light);text-transform:uppercase;margin-bottom:.8rem;border-left:3px solid var(--gold);padding-left:.8rem}
 .interest-row-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.interest-row-grid .img-wrapper{position:relative;height:130px; background-color:var(--dark-card);border-radius:6px;overflow:hidden}
-.interest-row-grid img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid rgba(200,169,110,.4);transition:transform 0.4s ease}
-.interest-row-grid .img-wrapper:hover img{transform:scale(1.06)}
+.interest-row-grid .img-wrapper{position:relative;height:130px; background-color:var(--dark-card)}
+.interest-row-grid img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid rgba(200,169,110,.4)}
 
 .detail-section{margin-bottom:1.8rem}
 .detail-label{font-family:var(--font-display);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:700}
@@ -148,20 +124,14 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 .project-double-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;margin-bottom:1.2rem}
 .project-triple-images{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;margin-bottom:1.2rem}
 
-/* FORMATS DE CARTES D'IMAGES (PAYSAGE OU PORTRAIT) */
 .version-card{display:flex;flex-direction:column;align-items:center}
 .version-card .img-wrapper{position:relative;width:100%;aspect-ratio:16/9;height:auto;background-color:var(--dark);border-radius:6px;border:1px solid rgba(200,169,110,.4);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.version-card img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 0.4s ease}
-.version-card:hover img{transform:scale(1.04)}
-
-/* FORMAT PORTRAIT SPÉCIFIQUE (BANC DE ROULAGE) */
+.version-card img{width:100%;height:100%;object-fit:contain;display:block}
 .portrait-card .img-wrapper{aspect-ratio:3/4;}
-
 .version-caption{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--gold-light);margin-top:.5rem;text-transform:uppercase;text-align:center}
 
 @media(max-width:900px){
   #home,.skill-grid-container,.contact-container{grid-template-columns:1fr;gap:2.5rem}
-  .skill-grid-container{grid-template-columns:1fr}
   .skill-list{grid-template-columns:1fr}
   .interest-row-grid,.simulator-versions-grid,.project-triple-images,.project-double-images{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
@@ -176,15 +146,14 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 
 <!-- NAVIGATION -->
 <nav>
-  <a href="#home" class="nav-brand">Mon portfolio</a>
+  <a href="#home" class="nav-brand">Samuel PINAULT</a>
   <ul class="nav-links">
     <li><a href="#home">01. Accueil</a></li>
-    <li><a href="#profil">02. Mon Profil</a></li>
-    <li><a href="#parcours">03. Réalisations</a></li>
-    <li><a href="#activite-perso">04. Activité personnelle</a></li>
-    <li><a href="#competences">05. Compétences</a></li>
-    <li><a href="#photographie">06. Photographie</a></li>
-    <li><a href="#contact">07. Contact</a></li>
+    <li><a href="#parcours">02. Réalisations</a></li>
+    <li><a href="#activite-perso">03. Activité personnelle</a></li>
+    <li><a href="#competences">04. Compétences</a></li>
+    <li><a href="#photographie">05. Photographie</a></li>
+    <li><a href="#contact">06. Contact</a></li>
   </ul>
 </nav>
 
@@ -192,10 +161,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 <section id="home" class="section-dark">
   <div>
     <div class="section-label">01. Présentation</div>
-    <h1 class="hero-title">Samuel PINAULT</h1>
-    <div class="hero-subtitle">Bienvenue sur mon portfolio.</div>
+    <h1 class="hero-title">Mon Portfolio</h1>
+    <div class="hero-subtitle">Étudiant - BUT 3 GMP - Parcours Simulation (IUT Orléans)</div>
     <p class="hero-desc">
-      Venez découvrir mon profil ainsi que certaines de mes réalisations dans différents contextes, qu'ils soient académiques ou personnels.
+      Bienvenue sur mon portfolio. Vous découvrirez ici mes réalisations dans différents contextes, qu'ils soient académiques ou personnels.
     </p>
   </div>
   <div>
@@ -211,41 +180,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 02 : MON PROFIL (PARCOURS ACADÉMIQUE) -->
-<section id="profil" class="section-alt">
+<!-- PARTIE 02 : PARCOURS ACADÉMIQUE & RÉALISATIONS -->
+<section id="parcours" class="section-alt">
   <div class="section-header">
     <div class="section-num">02</div>
-    <div class="section-titles">
-      <span class="section-label">Cursus académique</span>
-      <h2 class="section-title">Mon Profil</h2>
-    </div>
-  </div>
-
-  <div class="timeline-container">
-    <div class="timeline-item">
-      <div class="timeline-date">IUT</div>
-      <div class="timeline-title">BUT GMP - Parcours Simulation</div>
-      <div class="timeline-desc">IUT d'Orléans</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">Lycée</div>
-      <div class="timeline-title">Baccalauréat Général (Mathématiques / Sciences de l'ingénieur)</div>
-      <div class="timeline-desc">Lycée Blaise Pascal (Châteauroux) — Mention Bien</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">Collège</div>
-      <div class="timeline-title">Diplôme National du Brevet (DNB)</div>
-      <div class="timeline-desc">Collège Les Ménigouttes (Le Blanc) — Mention Très Bien</div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTIE 03 : PARCOURS ACADÉMIQUE & RÉALISATIONS -->
-<section id="parcours" class="section-dark">
-  <div class="section-header">
-    <div class="section-num">03</div>
     <div class="section-titles">
       <span class="section-label">Projets académiques</span>
       <h2 class="section-title">Mes Réalisations</h2>
@@ -253,42 +191,36 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
   
   <div class="grid-cards">
-    <div class="card">
+    <!-- CARTE 1 CLIQUABLE -->
+    <div class="card" onclick="openModal('real1')">
       <div class="card-image">
         <img id="img-real1" src="images/01. Projet Genouillère (ICN-BE5).png" alt="Projet Genouillère">
-        <div class="img-actions">
-          <button class="btn-action" onclick="openModal('real1')">🔍 Voir</button>
-        </div>
       </div>
       <div class="card-title">01. Projet Genouillère (ICN-BE5)</div>
     </div>
 
-    <div class="card">
+    <!-- CARTE 2 CLIQUABLE -->
+    <div class="card" onclick="openModal('real2')">
       <div class="card-image">
         <img id="img-real2" src="images/02. Projet Banc de Roulage.jpg" alt="Banc de roulage">
-        <div class="img-actions">
-          <button class="btn-action" onclick="openModal('real2')">🔍 Voir</button>
-        </div>
       </div>
       <div class="card-title">02. Projet Tutoré - Banc de Roulage</div>
     </div>
 
-    <div class="card">
+    <!-- CARTE 3 CLIQUABLE -->
+    <div class="card" onclick="openModal('real3')">
       <div class="card-image">
         <img id="img-real3" src="images/03. Optimisation d'une biellette.png" alt="Optimisation d'une biellette">
-        <div class="img-actions">
-          <button class="btn-action" onclick="openModal('real3')">🔍 Voir</button>
-        </div>
       </div>
       <div class="card-title">03. Optimisation d'une biellette</div>
     </div>
   </div>
 </section>
 
-<!-- PARTIE 04 : ACTIVITÉ PERSONNELLE -->
-<section id="activite-perso" class="section-alt">
+<!-- PARTIE 03 : ACTIVITÉ PERSONNELLE -->
+<section id="activite-perso" class="section-dark">
   <div class="section-header">
-    <div class="section-num">04</div>
+    <div class="section-num">03</div>
     <div class="section-titles">
       <span class="section-label">Projet personnel</span>
       <h2 class="section-title">Activité Personnelle</h2>
@@ -296,22 +228,20 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
   
   <div class="single-card-container">
-    <div class="card">
+    <!-- CARTE SIMULATEUR CLIQUABLE -->
+    <div class="card" onclick="openModal('perso1')">
       <div class="card-image">
         <img id="img-perso1" src="images/Conception et réalisation d'un simulateur_2.png" alt="Simulateur">
-        <div class="img-actions">
-          <button class="btn-action" onclick="openModal('perso1')">🔍 Voir</button>
-        </div>
       </div>
       <div class="card-title">Conception et réalisation d'un simulateur</div>
     </div>
   </div>
 </section>
 
-<!-- PARTIE 05 : COMPÉTENCES -->
-<section id="competences" class="section-dark">
+<!-- PARTIE 04 : COMPÉTENCES -->
+<section id="competences" class="section-alt">
   <div class="section-header">
-    <div class="section-num">05</div>
+    <div class="section-num">04</div>
     <div class="section-titles">
       <span class="section-label">Savoir-faire & Savoir-être</span>
       <h2 class="section-title">Compétences</h2>
@@ -332,18 +262,12 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
     </div>
 
     <div class="skill-box">
-      <h3 class="box-title">Savoir-être</h3>
+      <h3 class="box-title">Savoir-être & Langues</h3>
       <ul class="skill-list">
         <li>Autonomie & Rigueur</li>
         <li>Esprit d'équipe</li>
         <li>Capacité d'adaptation</li>
         <li>Ponctualité & Organisation</li>
-      </ul>
-    </div>
-
-    <div class="skill-box">
-      <h3 class="box-title">Langues</h3>
-      <ul class="skill-list">
         <li>Anglais (Niveau B2)</li>
         <li>Espagnol (Niveau B1)</li>
       </ul>
@@ -351,10 +275,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 06 : PHOTOGRAPHIE -->
-<section id="photographie" class="section-alt">
+<!-- PARTIE 05 : PHOTOGRAPHIE -->
+<section id="photographie" class="section-dark">
   <div class="section-header">
-    <div class="section-num">06</div>
+    <div class="section-num">05</div>
     <div class="section-titles">
       <span class="section-label">Passions & Clichés</span>
       <h2 class="section-title">Photographie</h2>
@@ -362,22 +286,20 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 
   <div class="interests-single-container">
-    <div class="card">
+    <!-- CARTE PHOTOGRAPHIE CLIQUABLE -->
+    <div class="card" onclick="openModal('interets_galerie')">
       <div class="card-image">
         <img id="img-interets" src="images/Photographie.jpg" alt="Photographie">
-        <div class="img-actions">
-          <button class="btn-action" onclick="openModal('interets_galerie')">🔍 Galerie</button>
-        </div>
       </div>
       <div class="card-title">Photographie</div>
     </div>
   </div>
 </section>
 
-<!-- PARTIE 07 : CONTACT & CV -->
-<section id="contact" class="section-dark">
+<!-- PARTIE 06 : CONTACT & CV -->
+<section id="contact" class="section-alt">
   <div class="section-header">
-    <div class="section-num">07</div>
+    <div class="section-num">06</div>
     <div class="section-titles">
       <span class="section-label">Informations</span>
       <h2 class="section-title">Contact</h2>
@@ -433,7 +355,6 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
       <div class="detail-section">
         <div class="detail-label">5. Étapes de réalisation</div>
         
-        <!-- Grilles d'images dynamiques selon le projet -->
         <div id="m-etapes-versions-images" class="simulator-versions-grid" style="display:none;"></div>
         <div id="m-genouillere-images" class="project-double-images" style="display:none;">
           <div class="version-card">
@@ -472,7 +393,6 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
         <div class="detail-text" id="m-resultats"></div>
       </div>
 
-      <!-- Emplacement des photos en format portrait sous la partie 7 pour le banc de roulage -->
       <div id="m-banc-extra-images" class="project-double-images" style="display:none;">
         <div class="version-card portrait-card">
           <div class="img-wrapper"><img src="images/Banc existant.jpg" alt="Banc existant"></div>
@@ -508,7 +428,6 @@ if (video) {
   video.addEventListener('play', () => { overlay.classList.add('hidden'); });
 }
 
-// GESTION DU MENU ACTIF AU SCROLL
 window.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-links a');
@@ -531,7 +450,6 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// DONNÉES DES GALERIES PHOTOGRAPHIE
 const INTEREST_ROWS = [
   {
     title: "01. Automobile",
@@ -562,7 +480,6 @@ const INTEREST_ROWS = [
   }
 ];
 
-// DONNÉES DES MODALES
 const DETAILS = {
   real1: {
     title: "01. Projet Genouillère (ICN-BE5)",
@@ -641,7 +558,7 @@ function openModal(key) {
 
     const introP = document.createElement('p');
     introP.className = 'modal-intro-text';
-    introP.textContent = "Depuis 2021, j'aime capturer tout ce qui m'entoure. La photographie peut mettre en avant ma rigueur et ma capacité d'adaptation quant à vouloir réaliser le meilleur cliché dans différents environnements et conditions.";
+    introP.textContent = "Passionné d'automobile, de sport et de photographie depuis 2021 lors de la finale de la Coupe de France des rallyes. J'aime capturer les événements sportifs ainsi que les paysages rencontrés lors de mes déplacements.";
     rowsContainer.appendChild(introP);
 
     INTEREST_ROWS.forEach((row, rowIndex) => {
