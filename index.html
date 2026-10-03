@@ -87,7 +87,8 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 
 .video-container{position:relative;width:100%;aspect-ratio:16/9;background:var(--dark-card);border:2px solid var(--gold);border-radius:8px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 0.4s ease, box-shadow 0.4s ease}
 .video-container:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(200,169,110,0.15)}
-.video-container video{width:100%;height:100%;object-fit:cover;display:block}
+.video-container img{width:100%;height:100%;object-fit:cover;display:block}
+.video-container iframe{width:100%;height:100%;border:none;display:block}
 
 /* BOUTON PLAY DANS LE COIN INFÉRIEUR DROIT */
 .play-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:1.5rem;background:rgba(0,0,0,0.15);cursor:pointer;transition:background 0.3s, opacity 0.3s;z-index:10}
@@ -240,13 +241,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
     </div>
   </div>
   <div>
-    <!-- Vidéo conservée à droite -->
-    <div class="video-container">
-      <video id="main-video" poster="images/Capture.png" preload="metadata">
-        <source src="images/Vidéo.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la lecture vidéo.
-      </video>
-      <div class="play-overlay" id="play-overlay" onclick="togglePlay()">
+    <!-- Conteneur vidéo avec image de couverture et bouton play -->
+    <div class="video-container" id="video-wrapper">
+      <img id="video-poster" src="images/Capture.png" alt="Aperçu vidéo">
+      <div class="play-overlay" id="play-overlay" onclick="playYouTubeVideo()">
         <div class="play-btn"></div>
       </div>
     </div>
@@ -524,23 +522,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 </div>
 
 <script>
-const video = document.getElementById('main-video');
-const overlay = document.getElementById('play-overlay');
-
-function togglePlay() {
-  if (video.paused) {
-    video.play();
-    video.controls = true;
-    overlay.classList.add('hidden');
-  } else {
-    video.pause();
-  }
-}
-
-if (video) {
-  video.load();
-  video.addEventListener('pause', () => { overlay.classList.remove('hidden'); });
-  video.addEventListener('play', () => { overlay.classList.add('hidden'); });
+function playYouTubeVideo() {
+  const wrapper = document.getElementById('video-wrapper');
+  // Ajout des paramètres d'origine et de sécurité pour éviter l'erreur 153 lors de la lecture
+  wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/MV9X8UlmBDo?autoplay=1&enablejsapi=1" title="Portfolio YouTube Video" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 }
 
 // GESTION DU MENU ACTIF AU SCROLL
