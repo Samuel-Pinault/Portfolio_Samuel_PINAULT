@@ -51,32 +51,39 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 .section-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3.5rem);line-height:1;text-transform:uppercase;color:var(--white);margin:0}
 
 /* ===== SECTION 01 : ACCUEIL & MÉDIAS ===== */
-#home{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;min-height:90vh;padding-top:8rem}
+#home{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;min-height:85vh;padding-top:5rem}
 .hero-left-col {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
 }
-.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);line-height:.95;color:var(--white)}
-.hero-subtitle{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:1rem}
-.hero-desc{font-size:1.15rem;color:var(--gray-light);margin-top:1.5rem;line-height:1.7}
 
+/* Image sans cadre et estompée sur les bords */
 .image-cadre-container {
   position: relative;
-  width: 100%;
+  width: 75%;
+  margin: 0;
   aspect-ratio: 16/9;
-  background: var(--dark-card);
-  border: 2px solid var(--gold);
-  border-radius: 8px;
+  background: transparent;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,.6);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
+                      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
+              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  mask-composite: intersect;
 }
 .image-cadre-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border: none;
 }
+
+.hero-title{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);line-height:.95;color:var(--white)}
+.hero-subtitle{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:1rem}
+.hero-desc{font-size:1.15rem;color:var(--gray-light);margin-top:1.5rem;line-height:1.7}
 
 .video-container{position:relative;width:100%;aspect-ratio:16/9;background:var(--dark-card);border:2px solid var(--gold);border-radius:8px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 0.4s ease, box-shadow 0.4s ease}
 .video-container:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(200,169,110,0.15)}
@@ -124,8 +131,18 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 
 /* ===== SECTION CONTACT & CV CÔTE À CÔTE ===== */
 .contact-container{display:grid;grid-template-columns:1.1fr 0.9fr;align-items:start;gap:3rem;max-width:1100px;margin:0 auto}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;background:var(--dark-card);padding:2.5rem;border-radius:8px;border:1px solid rgba(200,169,110,.25);height:100%;justify-content:center;transition:transform 0.3s ease}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;background:var(--dark-card);padding:2rem 2.5rem;border-radius:8px;border:1px solid rgba(200,169,110,.25);width:100%;transition:transform 0.3s ease}
 .contact-info:hover{transform:translateY(-3px)}
+
+.contact-details-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .contact-item{font-family:var(--font-display);font-size:1.15rem;color:var(--white);display:flex;align-items:center;gap:1rem;transition:transform 0.2s}
 .contact-item:hover{transform:translateX(4px)}
 .contact-item i { color: var(--gold); font-size: 1.5rem; width: 30px; text-align: center; } 
@@ -194,14 +211,14 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 
 <!-- NAVIGATION -->
 <nav>
-  <a href="#home" class="nav-brand">Mon portfolio</a>
+  <a href="#home" class="nav-brand">Samuel PINAULT</a>
   <ul class="nav-links">
     <li><a href="#home">01. Accueil</a></li>
     <li><a href="#profil">02. Mon Profil</a></li>
     <li><a href="#parcours">03. Réalisations</a></li>
     <li><a href="#activite-perso">04. Activité personnelle</a></li>
     <li><a href="#competences">05. Compétences</a></li>
-    <li><a href="#photographie">06. Photographie</a></li>
+    <li><a href="#photographie">06. Centres d'intérêts</a></li>
     <li><a href="#contact">07. Contact</a></li>
   </ul>
 </nav>
@@ -209,9 +226,9 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 <!-- PARTIE 01 : ACCUEIL -->
 <section id="home" class="section-dark">
   <div class="hero-left-col">
-    <!-- Image engrenages placée au-dessus du titre à gauche -->
+    <!-- Image sans cadre et estompée sur les bords -->
     <div class="image-cadre-container">
-      <img src="images/engrenages.png" alt="Engrenages">
+      <img src="images/Engrenages.jpg" alt="Engrenages">
     </div>
     <div>
       <div class="section-label">01. Présentation</div>
@@ -223,7 +240,7 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
     </div>
   </div>
   <div>
-    <!-- Vidéo à droite -->
+    <!-- Vidéo conservée à droite -->
     <div class="video-container">
       <video id="main-video" poster="images/Capture.png" preload="metadata">
         <source src="images/Vidéo.mp4" type="video/mp4">
@@ -369,7 +386,7 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   <div class="section-header">
     <div class="section-num">06</div>
     <div class="section-titles">
-      <span class="section-label">Passions & Clichés</span>
+      <span class="section-label">Passions</span>
       <h2 class="section-title">Centres d'intérêts</h2>
     </div>
   </div>
@@ -395,13 +412,22 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   
   <div class="contact-container">
     <div class="contact-info">
-      <p style="color:var(--gray-light);font-size:1.1rem;margin:0 0 1rem 0">
+      <p style="color:var(--gray-light);font-size:1.1rem;margin:0 0 0.5rem 0">
         N'hésitez pas à me contacter pour toute opportunité de stage ou échange.
       </p>
-      <div class="contact-item"><i class="fas fa-phone"></i><span>06 85 71 33 94</span></div>
-      <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:samuelpinault@outlook.fr">samuelpinault@outlook.fr</a></span></div>
-      <div class="contact-item"><i class="fab fa-linkedin"></i><span><a href="https://www.linkedin.com/in/samuel-pinault-7b81202a1/" target="_blank" rel="noopener">Profil LinkedIn</a></span></div>
-      <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Le Blanc / Centre Val de Loire, France</span></div>
+      
+      <!-- Coordonnées -->
+      <div class="contact-details-group">
+        <div class="contact-item"><i class="fas fa-phone"></i><span>06 85 71 33 94</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:samuelpinault@outlook.fr">samuelpinault@outlook.fr</a></span></div>
+        <div class="contact-item"><i class="fab fa-linkedin"></i><span><a href="https://www.linkedin.com/in/samuel-pinault-7b81202a1/" target="_blank" rel="noopener">Profil LinkedIn</a></span></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Le Blanc / Centre Val de Loire, France</span></div>
+      </div>
+
+      <!-- Image des engrenages intégrée et estompée en bas à gauche -->
+      <div class="image-cadre-container" style="width: 100%; margin-top: 1rem;">
+        <img src="images/Engrenages.jpg" alt="Engrenages">
+      </div>
     </div>
     
     <div class="cv-box">
