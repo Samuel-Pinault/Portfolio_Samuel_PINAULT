@@ -103,8 +103,14 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 .timeline-item{background:var(--dark-card);border-left:4px solid var(--gold);padding:1.5rem 2rem;border-radius:0 8px 8px 0;box-shadow:0 5px 20px rgba(0,0,0,.2);transition:transform 0.3s ease, box-shadow 0.3s ease}
 .timeline-item:hover{transform:translateX(6px);box-shadow:0 8px 25px rgba(200,169,110,0.1)}
 .timeline-date{font-family:var(--font-display);font-size:.9rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem}
-.timeline-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:.5rem}
-.timeline-desc{font-size:1.05rem;color:var(--gray-light);line-height:1.5}
+.timeline-header-flex{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.3rem}
+.timeline-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);text-transform:uppercase;margin:0}
+.company-logo{width:115px;height:115px;object-fit:contain;border-radius:6px;background:var(--dark-alt);padding:6px;border:1px solid rgba(200,169,110,0.3)}
+.timeline-desc{font-size:1.05rem;color:var(--gray-light);line-height:1.4}
+
+/* SPÉCIFIQUE EXPÉRIENCES : ESPACEMENT RÉDUIT ENTRE LES LIGNES */
+.experiences-container{gap:1.2rem}
+.experiences-item{padding:1.1rem 1.8rem}
 
 /* ===== GRILLE CARTE PHOTO + TITRE ===== */
 .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
@@ -216,11 +222,12 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   <ul class="nav-links">
     <li><a href="#home">01. Accueil</a></li>
     <li><a href="#profil">02. Mon Profil</a></li>
-    <li><a href="#parcours">03. Réalisations</a></li>
-    <li><a href="#activite-perso">04. Activité personnelle</a></li>
-    <li><a href="#competences">05. Compétences</a></li>
-    <li><a href="#photographie">06. Centres d'intérêts</a></li>
-    <li><a href="#contact">07. Contact</a></li>
+    <li><a href="#experiences">03. Expériences</a></li>
+    <li><a href="#parcours">04. Réalisations</a></li>
+    <li><a href="#activite-perso">05. Activité personnelle</a></li>
+    <li><a href="#competences">06. Compétences</a></li>
+    <li><a href="#photographie">07. Centres d'intérêts</a></li>
+    <li><a href="#contact">08. Contact</a></li>
   </ul>
 </nav>
 
@@ -282,10 +289,41 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 03 : PARCOURS ACADÉMIQUE & RÉALISATIONS -->
-<section id="parcours" class="section-dark">
+<!-- PARTIE 03 : EXPÉRIENCES PROFESSIONNELLES -->
+<section id="experiences" class="section-dark">
   <div class="section-header">
     <div class="section-num">03</div>
+    <div class="section-titles">
+      <span class="section-label">Parcours professionnel</span>
+      <h2 class="section-title">Expériences Professionnelles</h2>
+    </div>
+  </div>
+
+  <div class="timeline-container experiences-container">
+    <div class="timeline-item experiences-item">
+      <div class="timeline-date">2026</div>
+      <div class="timeline-header-flex">
+        <h3 class="timeline-title">Stage — Aresia — 11 semaines</h3>
+        <img src="images/logo-aresia.jpg" alt="Logo Aresia" class="company-logo">
+      </div>
+      <div class="timeline-desc">Recherche de solutions — Mise en CAO — Réalisation de plans</div>
+    </div>
+
+    <div class="timeline-item experiences-item">
+      <div class="timeline-date">2024 / 2026</div>
+      <div class="timeline-header-flex">
+        <h3 class="timeline-title">Travail d'été — Syndicat des Eaux de Fontgombault</h3>
+        <img src="images/logo-syndicat.jpg" alt="Logo Syndicat des Eaux" class="company-logo">
+      </div>
+      <div class="timeline-desc">Relevé de compteur — Autonomie - Rigueur - Relations humaines - Anglais</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIE 04 : PARCOURS ACADÉMIQUE & RÉALISATIONS -->
+<section id="parcours" class="section-alt">
+  <div class="section-header">
+    <div class="section-num">04</div>
     <div class="section-titles">
       <span class="section-label">Projets académiques</span>
       <h2 class="section-title">Mes Réalisations</h2>
@@ -313,13 +351,20 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
       </div>
       <div class="card-title" style="margin-top:1.2rem;">03. Optimisation d'une biellette</div>
     </div>
+
+    <div class="card" onclick="openModal('real4')">
+      <div class="card-image" style="margin-bottom:0;">
+        <img id="img-real4" src="images/délesteur.jpg" alt="Optimisation d'un délesteur 2 tonnes">
+      </div>
+      <div class="card-title" style="margin-top:1.2rem;">04. Optimisation d'un délesteur 2 tonnes</div>
+    </div>
   </div>
 </section>
 
-<!-- PARTIE 04 : ACTIVITÉ PERSONNELLE -->
-<section id="activite-perso" class="section-alt">
+<!-- PARTIE 05 : ACTIVITÉ PERSONNELLE -->
+<section id="activite-perso" class="section-dark">
   <div class="section-header">
-    <div class="section-num">04</div>
+    <div class="section-num">05</div>
     <div class="section-titles">
       <span class="section-label">Projet personnel</span>
       <h2 class="section-title">Activité Personnelle</h2>
@@ -336,10 +381,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 05 : COMPÉTENCES -->
-<section id="competences" class="section-dark">
+<!-- PARTIE 06 : COMPÉTENCES -->
+<section id="competences" class="section-alt">
   <div class="section-header">
-    <div class="section-num">05</div>
+    <div class="section-num">06</div>
     <div class="section-titles">
       <span class="section-label">Savoir-faire & Savoir-être</span>
       <h2 class="section-title">Compétences</h2>
@@ -379,10 +424,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 06 : CENTRES D'INTÉRÊTS -->
-<section id="photographie" class="section-alt">
+<!-- PARTIE 07 : CENTRES D'INTÉRÊTS -->
+<section id="photographie" class="section-dark">
   <div class="section-header">
-    <div class="section-num">06</div>
+    <div class="section-num">07</div>
     <div class="section-titles">
       <span class="section-label">Passions</span>
       <h2 class="section-title">Centres d'intérêts</h2>
@@ -398,10 +443,10 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
   </div>
 </section>
 
-<!-- PARTIE 07 : CONTACT & CV -->
-<section id="contact" class="section-dark">
+<!-- PARTIE 08 : CONTACT & CV -->
+<section id="contact" class="section-alt">
   <div class="section-header">
-    <div class="section-num">07</div>
+    <div class="section-num">08</div>
     <div class="section-titles">
       <span class="section-label">Informations</span>
       <h2 class="section-title">Contact</h2>
@@ -463,21 +508,65 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
         <div class="detail-label" id="m-methodes-label">4. Méthodes & Démarche</div>
         <div class="detail-text" id="m-methodes"></div>
       </div>
-      <div class="detail-section">
+
+      <!-- Section 5 (Étapes) -->
+      <div class="detail-section" id="section-etapes-wrapper">
         <div class="detail-label">5. Étapes de réalisation</div>
         
         <!-- Grilles d'images dynamiques selon le projet -->
         <div id="m-etapes-versions-images" class="simulator-versions-grid" style="display:none;"></div>
-        <div id="m-genouillere-images" class="project-double-images" style="display:none;">
-          <div class="version-card">
-            <div class="img-wrapper"><img src="images/Gabarit de soudage.png" alt="Gabarit de soudage"></div>
-            <div class="version-caption">Gabarit de soudage</div>
+        
+        <!-- Projet Genouillère : Images CAO au-dessus puis les tâches dans l'ordre avec leurs images -->
+        <div id="m-genouillere-images" style="display:none;">
+          <!-- CAO (au-dessus) -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem; margin-top:0.5rem;">CAO</div>
+          <div class="project-double-images" style="margin-top:0; margin-bottom:1.5rem;">
+            <div class="version-card">
+              <div class="img-wrapper"><img src="images/Gabarit de soudage.png" alt="Gabarit de soudage"></div>
+              <div class="version-caption">Gabarit de soudage</div>
+            </div>
+            <div class="version-card">
+              <div class="img-wrapper"><img src="images/Pièce finie.png" alt="Pièce finie"></div>
+              <div class="version-caption">Pièce finie</div>
+            </div>
           </div>
-          <div class="version-card">
-            <div class="img-wrapper"><img src="images/Pièce finie.png" alt="Pièce finie"></div>
-            <div class="version-caption">Pièce finie</div>
+
+          <!-- Étape Découpe -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem;">Découpe</div>
+          <div class="version-card" style="max-width:500px; margin:0 auto 1.5rem auto;">
+            <div class="img-wrapper"><img src="images/decoupe.jpg" alt="Découpe"></div>
+            <div class="version-caption">Découpe jet d'eau</div>
+          </div>
+
+          <!-- Étape Pliage -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem;">Pliage</div>
+          <div class="version-card" style="max-width:500px; margin:0 auto 1.5rem auto;">
+            <div class="img-wrapper"><img src="images/pliage.jpg" alt="Pliage"></div>
+            <div class="version-caption">Pliage</div>
+          </div>
+
+          <!-- Étape Soudage -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem;">Soudage</div>
+          <div class="version-card" style="max-width:500px; margin:0 auto 1.5rem auto;">
+            <div class="img-wrapper"><img src="images/soudage.jpg" alt="Soudage"></div>
+            <div class="version-caption">Soudage</div>
+          </div>
+
+          <!-- Étape Tournage -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem;">Tournage</div>
+          <div class="version-card" style="max-width:500px; margin:0 auto 1.5rem auto;">
+            <div class="img-wrapper"><img src="images/tournage.jpg" alt="Tournage"></div>
+            <div class="version-caption">Tournage</div>
+          </div>
+
+          <!-- Étape Perçage -->
+          <div class="detail-label" style="font-size:0.95rem; color:var(--gold-light); margin-bottom:0.5rem;">Perçage</div>
+          <div class="version-card" style="max-width:500px; margin:0 auto 1.5rem auto;">
+            <div class="img-wrapper"><img src="images/perçage.jpg" alt="Perçage"></div>
+            <div class="version-caption">Perçage</div>
           </div>
         </div>
+
         <div id="m-biellette-images" class="project-triple-images" style="display:none;">
           <div class="version-card">
             <div class="img-wrapper"><img src="images/Etape 1.png" alt="Etape 1"></div>
@@ -496,13 +585,41 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
         <div class="detail-text" id="m-etapes"></div>
       </div>
 
-      <div class="detail-section">
-        <div class="detail-label">6. Difficultés rencontrées</div>
+      <div class="detail-section" id="section-difficultes-wrapper">
+        <div class="detail-label" id="label-difficultes">6. Difficultés rencontrées</div>
         <div class="detail-text" id="m-difficultes"></div>
       </div>
-      <div class="detail-section">
-        <div class="detail-label">7. Résultats & Bilan</div>
+      <div class="detail-section" id="section-resultats-wrapper">
+        <div class="detail-label" id="label-resultats">7. Résultats & Bilan</div>
         <div class="detail-text" id="m-resultats"></div>
+      </div>
+
+      <!-- Image d'assemblage final sous le bilan pour le projet genouillère -->
+      <div id="m-genouillere-assemblage" class="project-double-images" style="display:none; justify-content:center;">
+        <div class="version-card" style="max-width:500px; width:100%;">
+          <div class="img-wrapper"><img src="images/assemblage.jpeg" alt="Assemblage final"></div>
+          <div class="version-caption">Assemblage final</div>
+        </div>
+      </div>
+
+      <!-- Emplacement des photos Avant/Après pour le projet délesteur -->
+      <div id="m-delesteur-images" class="project-double-images" style="display:none;">
+        <div class="version-card">
+          <div class="img-wrapper"><img src="images/Avant.jpg" alt="Avant"></div>
+          <div class="version-caption">Avant</div>
+        </div>
+        <div class="version-card">
+          <div class="img-wrapper"><img src="images/Après.png" alt="Après"></div>
+          <div class="version-caption">Après</div>
+        </div>
+      </div>
+
+      <!-- Emplacement de l'image finale pour le projet simulateur -->
+      <div id="m-simulateur-fin-image" class="project-double-images" style="display:none; justify-content:center;">
+        <div class="version-card" style="max-width:500px; width:100%;">
+          <div class="img-wrapper"><img src="images/Conception et réalisation d'un simulateur_2.png" alt="Simulateur finalisé"></div>
+          <div class="version-caption">Simulateur finalisé</div>
+        </div>
       </div>
 
       <!-- Emplacement des photos en format portrait sous la partie 7 pour le banc de roulage -->
@@ -524,7 +641,6 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
 <script>
 function playYouTubeVideo() {
   const wrapper = document.getElementById('video-wrapper');
-  // Ajout des paramètres d'origine et de sécurité pour éviter l'erreur 153 lors de la lecture
   wrapper.innerHTML = '<iframe src="https://www.youtube.com/embed/MV9X8UlmBDo?autoplay=1&enablejsapi=1" title="Portfolio YouTube Video" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 }
 
@@ -591,9 +707,13 @@ const DETAILS = {
     cdc: "Respecter les contraintes géométriques de l'assemblage, anticiper la faisabilité d'usinage.",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Analyse pour comparer les différents procédés sur Creo Parametric lors de TP, puis fabrication de la pièce en mécano-soudé.",
+    showEtapes: true,
     etapes: "Conception de la CAO du gabarit de soudage, découpe jet d'eau des éléments, pliage, soudage des composants de la pièce, alésage du cylindre intérieur, perçage final.",
     showGenouillereImages: true,
+    showGenouillereAssemblage: true,
+    difficultesLabel: "6. Difficultés rencontrées",
     difficultes: "Réussir les usinages les plus précis possibles et les soudures de meilleures qualités possibles sans grand entraînement.",
+    resultatsLabel: "7. Résultats & Bilan",
     resultats: "Pièce réalisée avec succès."
   },
   real2: {
@@ -603,9 +723,12 @@ const DETAILS = {
     cdc: "Utilisation du plus de composants du banc actuel et réalisation du projet avec le coût le moins important.",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Démontage de l'ancien banc et analyse, tests sur roue de vélo pour valider le principe d'inertie, réalisation de calculs, modélisation CAO sous Creo et calculs de dimensionnement.",
+    showEtapes: true,
     etapes: "Conception de plusieurs versions CAO, optimisation des dimensions de la structure et intégration de la visserie (écrous en T, équerres).",
     showBancExtraImages: true,
+    difficultesLabel: "6. Difficultés rencontrées",
     difficultes: "Gérer l'alignement des composants et assurer la coaxialité entre la couronne et la roue grâce à une pièce intermédiaire.",
+    resultatsLabel: "7. Résultats & Bilan",
     resultats: "Prototype fonctionnel mais manque de temps pour la réalisation."
   },
   real3: {
@@ -616,9 +739,26 @@ const DETAILS = {
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Modifications géométriques pour évaluer l'importance de chaque paramètre sur les contraintes.",
     showBielletteImages: true,
+    showEtapes: true,
     etapes: "Création de formes arrondies, ajout de blocs de matière, réalisation de chanfreins et ajustement des rayons.",
+    difficultesLabel: "6. Difficultés rencontrées",
     difficultes: "Respecter l'intégralité des critères du cahier des charges.",
+    resultatsLabel: "7. Résultats & Bilan",
     resultats: "Pièce optimisée plus légère et qui subit moins de contraintes."
+  },
+  real4: {
+    title: "04. Optimisation d'un délesteur 2 tonnes",
+    contexte: "Étude et optimisation d'un délesteur de 2 tonnes dans le but de le présenter à un salon aéronautique.",
+    objectif: "Réduction du poids - Travailler le système d'ouverture - Implantation de capteurs - Réduction des efforts",
+    cdc: "Mécanisme qui subit des contraintes importantes - Respect des normes - Respect des volontés de l'entreprise",
+    methodesLabel: "4. Méthodes & Démarche",
+    methodes: "Analyse du besoin - Recherche de solutions - Mise en CAO - Réalisation",
+    showEtapes: false,
+    showDelesteurImages: true,
+    difficultesLabel: "5. Difficultés rencontrées",
+    difficultes: "Compréhension du mécanisme - Adaptation avec Catia - Contraintes importantes",
+    resultatsLabel: "6. Résultats & Bilan",
+    resultats: "Proposition d'une CAO complète et valide avec une solution optimisée valide."
   },
   perso1: {
     title: "Conception et réalisation d'un simulateur",
@@ -632,8 +772,12 @@ const DETAILS = {
       { label: "CAO V2", defaultSrc: "images/Version 2.png" },
       { label: "CAO V3", defaultSrc: "images/Version 3.png" }
     ],
+    showEtapes: true,
     etapes: "V1 : Châssis de base avec support volant et pédalier. V2 : Intégration d'un support écran. V3 : Intégration d'un siège baquet.",
+    showSimulateurFinImage: true,
+    difficultesLabel: "6. Difficultés rencontrées",
     difficultes: "Assurer la rigidité globale et le parallélisme des éléments mécaniques.",
+    resultatsLabel: "7. Résultats & Bilan",
     resultats: "Simulateur fonctionnel, robuste et quotidiennement utilisé."
   }
 };
@@ -644,15 +788,22 @@ function openModal(key) {
   const projectContainer = document.getElementById('m-project-container');
   const etapesVersionsContainer = document.getElementById('m-etapes-versions-images');
   const genouillereImagesContainer = document.getElementById('m-genouillere-images');
+  const genouillereAssemblageContainer = document.getElementById('m-genouillere-assemblage');
   const bielletteImagesContainer = document.getElementById('m-biellette-images');
   const bancExtraImagesContainer = document.getElementById('m-banc-extra-images');
+  const delesteurImagesContainer = document.getElementById('m-delesteur-images');
+  const simulateurFinImageContainer = document.getElementById('m-simulateur-fin-image');
+  const sectionEtapesWrapper = document.getElementById('section-etapes-wrapper');
   
   rowsContainer.innerHTML = '';
   etapesVersionsContainer.innerHTML = '';
   etapesVersionsContainer.style.display = 'none';
   genouillereImagesContainer.style.display = 'none';
+  genouillereAssemblageContainer.style.display = 'none';
   bielletteImagesContainer.style.display = 'none';
   bancExtraImagesContainer.style.display = 'none';
+  delesteurImagesContainer.style.display = 'none';
+  simulateurFinImageContainer.style.display = 'none';
 
   if (key === 'interets_galerie') {
     document.getElementById('m-title').textContent = "Centres d'intérêts";
@@ -704,8 +855,23 @@ function openModal(key) {
     
     ['contexte', 'objectif', 'cdc', 'methodes', 'etapes', 'difficultes', 'resultats'].forEach(field => {
       const elem = document.getElementById('m-' + field);
-      if (elem) elem.textContent = data[field];
+      if (elem) elem.textContent = data[field] || '';
     });
+
+    if (data.difficultesLabel) {
+      const diffLabelElem = document.getElementById('label-difficultes');
+      if (diffLabelElem) diffLabelElem.textContent = data.difficultesLabel;
+    }
+    if (data.resultatsLabel) {
+      const resLabelElem = document.getElementById('label-resultats');
+      if (resLabelElem) resLabelElem.textContent = data.resultatsLabel;
+    }
+
+    if (data.showEtapes === false) {
+      sectionEtapesWrapper.style.display = 'none';
+    } else {
+      sectionEtapesWrapper.style.display = 'block';
+    }
 
     if (data.versionImages && data.versionImages.length > 0) {
       etapesVersionsContainer.style.display = 'grid';
@@ -733,7 +899,11 @@ function openModal(key) {
     }
 
     if (data.showGenouillereImages) {
-      genouillereImagesContainer.style.display = 'grid';
+      genouillereImagesContainer.style.display = 'block';
+    }
+
+    if (data.showGenouillereAssemblage) {
+      genouillereAssemblageContainer.style.display = 'flex';
     }
 
     if (data.showBielletteImages) {
@@ -742,6 +912,14 @@ function openModal(key) {
 
     if (data.showBancExtraImages) {
       bancExtraImagesContainer.style.display = 'grid';
+    }
+
+    if (data.showDelesteurImages) {
+      delesteurImagesContainer.style.display = 'grid';
+    }
+
+    if (data.showSimulateurFinImage) {
+      simulateurFinImageContainer.style.display = 'flex';
     }
   }
 
