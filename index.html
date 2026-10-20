@@ -499,25 +499,25 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
     <div id="m-rows-container"></div>
     <div id="m-project-container" style="display:none;">
       <div class="detail-section">
-        <div class="detail-label">1. Contexte</div>
+        <div class="detail-label" id="m-label-1">1. Contexte</div>
         <div class="detail-text" id="m-contexte"></div>
       </div>
-      <div class="detail-section">
+      <div class="detail-section" id="section-objectif-wrapper">
         <div class="detail-label">2. Objectif</div>
         <div class="detail-text" id="m-objectif"></div>
       </div>
-      <div class="detail-section">
-        <div class="detail-label">3. Cahier des charges</div>
+      <div class="detail-section" id="section-cdc-wrapper">
+        <div class="detail-label" id="m-label-cdc">3. Cahier des charges</div>
         <div class="detail-text" id="m-cdc"></div>
       </div>
-      <div class="detail-section">
+      <div class="detail-section" id="section-methodes-wrapper">
         <div class="detail-label" id="m-methodes-label">4. Méthodes & Démarche</div>
         <div class="detail-text" id="m-methodes"></div>
       </div>
 
       <!-- Section 5 (Étapes) -->
       <div class="detail-section" id="section-etapes-wrapper">
-        <div class="detail-label">5. Étapes de réalisation</div>
+        <div class="detail-label" id="m-label-etapes">5. Étapes de réalisation</div>
         
         <!-- Grilles d'images dynamiques selon le projet -->
         <div id="m-etapes-versions-images" class="simulator-versions-grid" style="display:none;"></div>
@@ -713,6 +713,12 @@ const DETAILS = {
     cdc: "Respecter les contraintes géométriques de l'assemblage, anticiper la faisabilité d'usinage.",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Analyse pour comparer les différents procédés sur Creo Parametric lors de TP, puis fabrication de la pièce en mécano-soudé.",
+    showObjectif: true,
+    showCdc: true,
+    showMethodes: true,
+    label1: "1. Contexte",
+    labelCdc: "3. Cahier des charges",
+    labelEtapes: "5. Étapes de réalisation",
     showEtapes: true,
     etapes: "Conception de la CAO du gabarit de soudage, découpe jet d'eau des éléments, pliage, soudage des composants de la pièce, alésage du cylindre intérieur, perçage final.",
     showGenouillereImages: true,
@@ -729,6 +735,12 @@ const DETAILS = {
     cdc: "Utilisation du plus de composants du banc actuel et réalisation du projet avec le coût le moins important.",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Démontage de l'ancien banc et analyse, tests sur roue de vélo pour valider le principe d'inertie, réalisation de calculs, modélisation CAO sous Creo et calculs de dimensionnement.",
+    showObjectif: true,
+    showCdc: true,
+    showMethodes: true,
+    label1: "1. Contexte",
+    labelCdc: "3. Cahier des charges",
+    labelEtapes: "5. Étapes de réalisation",
     showEtapes: true,
     etapes: "Conception de plusieurs versions CAO, optimisation des dimensions de la structure et intégration de la visserie (écrous en T, équerres).",
     showBancExtraImages: true,
@@ -739,17 +751,22 @@ const DETAILS = {
   },
   real3: {
     title: "03. Optimisation d'une biellette",
-    contexte: "Déterminer le comportement de la bielle sous différents efforts afin d'analyser les contraintes subies.",
-    objectif: "Optimiser la forme de la pièce afin d'atténuer les contraintes en respectant le cahier des charges.",
+    contexte: "Déterminer le comportement de la bielle sous différents efforts afin d'analyser les contraintes subies. Optimiser la forme de la pièce afin d'atténuer les contraintes en respectant le cahier des charges.",
     cdc: "Coefficient de sécurité de 6, faisabilité en injection plastique (arrondis adéquats), masse < 10 g.",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Modifications géométriques pour évaluer l'importance de chaque paramètre sur les contraintes.",
+    showObjectif: false,
+    showCdc: true,
+    showMethodes: true,
+    label1: "1. Contexte & Objectif",
+    labelCdc: "2. Cahier des charges",
+    labelEtapes: "4. Étapes de réalisation",
     showBielletteImages: true,
     showEtapes: true,
     etapes: "Création de formes arrondies, ajout de blocs de matière, réalisation de chanfreins et ajustement des rayons.",
-    difficultesLabel: "6. Difficultés rencontrées",
+    difficultesLabel: "5. Difficultés rencontrées",
     difficultes: "Respecter l'intégralité des critères du cahier des charges.",
-    resultatsLabel: "7. Résultats & Bilan",
+    resultatsLabel: "6. Résultats & Bilan",
     resultats: "Pièce optimisée plus légère et qui subit moins de contraintes."
   },
   real4: {
@@ -759,6 +776,12 @@ const DETAILS = {
     cdc: "Mécanisme qui subit des contraintes importantes - Respect des normes - Respect des volontés de l'entreprise",
     methodesLabel: "4. Méthodes & Démarche",
     methodes: "Analyse du besoin - Recherche de solutions - Mise en CAO - Réalisation",
+    showObjectif: true,
+    showCdc: true,
+    showMethodes: true,
+    label1: "1. Contexte",
+    labelCdc: "3. Cahier des charges",
+    labelEtapes: "5. Étapes de réalisation",
     showEtapes: false,
     showDelesteurImages: true,
     difficultesLabel: "5. Difficultés rencontrées",
@@ -768,22 +791,25 @@ const DETAILS = {
   },
   perso1: {
     title: "Conception et réalisation d'un simulateur",
-    contexte: "Passionné par l'automobile et le simracing, j'ai réalisé la conception et la fabrication complète de mon simulateur.",
-    objectif: "Réaliser les différentes tâches du projet : conception, choix techniques, dimensionnement et assemblage.",
+    contexte: "Passionné par l'automobile et le simracing, j'ai réalisé la conception et la fabrication complète de mon simulateur. Créer une structure robuste, adaptable et évolutive. Réaliser les différentes tâches du projet : conception, choix techniques, dimensionnement et assemblage.",
     cdc: "Créer une structure robuste, adaptable et évolutive.",
-    methodesLabel: "4. Méthodes mises en œuvre",
-    methodes: "Analyse de l'existant, modélisation CAO sous Creo Parametric, calcul de structure sous RDM Le Mans, puis assemblage.",
+    showObjectif: false,
+    showCdc: true,
+    showMethodes: false,
+    label1: "1. Contexte & Objectif",
+    labelCdc: "2. Cahier des charges",
+    labelEtapes: "3. Étapes de réalisation",
     versionImages: [
       { label: "CAO V1", defaultSrc: "images/Version 1.png" },
       { label: "CAO V2", defaultSrc: "images/Version 2.png" },
       { label: "CAO V3", defaultSrc: "images/Version 3.png" }
     ],
     showEtapes: true,
-    etapes: "V1 : Châssis de base avec support volant et pédalier. V2 : Intégration d'un support écran. V3 : Intégration d'un siège baquet.",
+    etapes: "Analyse de l'existant, modélisation CAO sous Creo Parametric, calcul de structure sous RDM Le Mans, puis assemblage.<br><br>V1 : Châssis de base avec support volant et pédalier. V2 : Intégration d'un support écran. V3 : Intégration d'un siège baquet.",
     showSimulateurFinImage: true,
-    difficultesLabel: "6. Difficultés rencontrées",
+    difficultesLabel: "4. Difficultés rencontrées",
     difficultes: "Assurer la rigidité globale et le parallélisme des éléments mécaniques.",
-    resultatsLabel: "7. Résultats & Bilan",
+    resultatsLabel: "5. Résultats & Bilan",
     resultats: "Simulateur fonctionnel, robuste et quotidiennement utilisé."
   }
 };
@@ -800,6 +826,9 @@ function openModal(key) {
   const delesteurImagesContainer = document.getElementById('m-delesteur-images');
   const simulateurFinImageContainer = document.getElementById('m-simulateur-fin-image');
   const sectionEtapesWrapper = document.getElementById('section-etapes-wrapper');
+  const sectionObjectifWrapper = document.getElementById('section-objectif-wrapper');
+  const sectionCdcWrapper = document.getElementById('section-cdc-wrapper');
+  const sectionMethodesWrapper = document.getElementById('section-methodes-wrapper');
   
   rowsContainer.innerHTML = '';
   etapesVersionsContainer.innerHTML = '';
@@ -857,12 +886,20 @@ function openModal(key) {
     projectContainer.style.display = 'block';
 
     document.getElementById('m-title').textContent = data.title;
+    document.getElementById('m-label-1').textContent = data.label1 || "1. Contexte";
+    document.getElementById('m-label-cdc').textContent = data.labelCdc || "3. Cahier des charges";
+    document.getElementById('m-label-etapes').textContent = data.labelEtapes || "5. Étapes de réalisation";
     document.getElementById('m-methodes-label').textContent = data.methodesLabel || "4. Méthodes & Démarche";
     
-    ['contexte', 'objectif', 'cdc', 'methodes', 'etapes', 'difficultes', 'resultats'].forEach(field => {
+    ['contexte', 'objectif', 'cdc', 'methodes', 'difficultes', 'resultats'].forEach(field => {
       const elem = document.getElementById('m-' + field);
-      if (elem) elem.textContent = data[field] || '';
+      if (elem) elem.innerHTML = data[field] || '';
     });
+
+    // Gestion de l'affichage des sections optionnelles
+    sectionObjectifWrapper.style.display = data.showObjectif === false ? 'none' : 'block';
+    sectionCdcWrapper.style.display = data.showCdc === false ? 'none' : 'block';
+    sectionMethodesWrapper.style.display = data.showMethodes === false ? 'none' : 'block';
 
     if (data.difficultesLabel) {
       const diffLabelElem = document.getElementById('label-difficultes');
