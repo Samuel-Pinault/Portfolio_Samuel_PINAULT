@@ -503,7 +503,7 @@ section{padding:7rem 2rem 5rem 2rem;position:relative;width:100%}
         <div class="detail-text" id="m-contexte"></div>
       </div>
       <div class="detail-section" id="section-objectif-wrapper">
-        <div class="detail-label">2. Objectif</div>
+        <div class="detail-label" id="m-label-objectif">2. Objectif</div>
         <div class="detail-text" id="m-objectif"></div>
       </div>
       <div class="detail-section" id="section-cdc-wrapper">
@@ -717,6 +717,7 @@ const DETAILS = {
     showCdc: true,
     showMethodes: true,
     label1: "1. Contexte",
+    labelObjectif: "2. Objectif",
     labelCdc: "3. Cahier des charges",
     labelEtapes: "5. Étapes de réalisation",
     showEtapes: true,
@@ -739,6 +740,7 @@ const DETAILS = {
     showCdc: true,
     showMethodes: true,
     label1: "1. Contexte",
+    labelObjectif: "2. Objectif",
     labelCdc: "3. Cahier des charges",
     labelEtapes: "5. Étapes de réalisation",
     showEtapes: true,
@@ -753,7 +755,7 @@ const DETAILS = {
     title: "03. Optimisation d'une biellette",
     contexte: "Déterminer le comportement de la bielle sous différents efforts afin d'analyser les contraintes subies. Optimiser la forme de la pièce afin d'atténuer les contraintes en respectant le cahier des charges.",
     cdc: "Coefficient de sécurité de 6, faisabilité en injection plastique (arrondis adéquats), masse < 10 g.",
-    methodesLabel: "4. Méthodes & Démarche",
+    methodesLabel: "3. Méthodes & Démarche",
     methodes: "Modifications géométriques pour évaluer l'importance de chaque paramètre sur les contraintes.",
     showObjectif: false,
     showCdc: true,
@@ -780,6 +782,7 @@ const DETAILS = {
     showCdc: true,
     showMethodes: true,
     label1: "1. Contexte",
+    labelObjectif: "2. Objectif",
     labelCdc: "3. Cahier des charges",
     labelEtapes: "5. Étapes de réalisation",
     showEtapes: false,
@@ -887,11 +890,14 @@ function openModal(key) {
 
     document.getElementById('m-title').textContent = data.title;
     document.getElementById('m-label-1').textContent = data.label1 || "1. Contexte";
+    if (document.getElementById('m-label-objectif')) {
+      document.getElementById('m-label-objectif').textContent = data.labelObjectif || "2. Objectif";
+    }
     document.getElementById('m-label-cdc').textContent = data.labelCdc || "3. Cahier des charges";
     document.getElementById('m-label-etapes').textContent = data.labelEtapes || "5. Étapes de réalisation";
     document.getElementById('m-methodes-label').textContent = data.methodesLabel || "4. Méthodes & Démarche";
     
-    ['contexte', 'objectif', 'cdc', 'methodes', 'difficultes', 'resultats'].forEach(field => {
+    ['contexte', 'objectif', 'cdc', 'methodes', 'etapes', 'difficultes', 'resultats'].forEach(field => {
       const elem = document.getElementById('m-' + field);
       if (elem) elem.innerHTML = data[field] || '';
     });
